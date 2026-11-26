@@ -25,28 +25,27 @@ console.log("=== INÍCIO DA ATIVIDADE 20: OPERADORES E CONDICIONAIS ===");
 //    "Compra: R$ 250.00 | Desconto: R$ 25.00 (10%) | Total a Pagar: R$ 225.00"
 //    (Dica: utilize .toFixed(2) para formatar duas casas decimais).
 
+console.log("--- Atividade 1: Desconto Progressivo ---");
+
+// TODO: Escreva seu código da Atividade 1 abaixo:
 
 const valorCompra = 250.00;
 let porcentagemDesconto = 0;
 
 if ( valorCompra <= 100.00 ) {
-    let porcentagemDesconto = 0;
+    porcentagemDesconto = 0;
 
-} else if ( valorCompra >= 100.01 && valorCompra <= 300.00) {
-    let porcentagemDesconto = 0.10;
+} else if ( valorCompra <= 300.00) {
+    porcentagemDesconto = 0.10;
 
 } else {
-    let porcentagemDesconto = 0.15;
+    porcentagemDesconto = 0.15;
 } 
 
-const valorDesconto = (valorCompra * porcentagemDesconto);
-const valorFinal = (valorCompra - valorDesconto);
+const valorDesconto = valorCompra * porcentagemDesconto;
+const valorFinal = valorCompra - valorDesconto;
 
-console.log (`Compra: R$ ${valorCompra.toFixed(2)} | Desconto: R$ ${porcentagemDesconto.toFixed(2)} | Total a Pagar: R$ ${valorFinal.toFixed(2)}`);
-console.log("--- Atividade 1: Desconto Progressivo ---");
-
-// TODO: Escreva seu código da Atividade 1 abaixo:
-
+console.log (`Compra: R$ ${valorCompra.toFixed(2)} | Desconto: R$ ${valorDesconto.toFixed(2)} (${porcentagemDesconto * 100}%) | Total a Pagar: R$ ${valorFinal.toFixed(2)}`);
 
 
 
@@ -75,9 +74,27 @@ console.log("--- Atividade 2: Validador de Acesso ---");
 
 // TODO: Escreva seu código da Atividade 2 abaixo:
 
+const usuarioLogado = true;
+const idadeUsuario = 20;
+const perfilUsuario = "ADMIN";
+
+const temPermissao = perfilUsuario === "ADMIN" || perfilUsuario === "GERENTE"
 
 
+if (usuarioLogado && idadeUsuario >= 18 && perfilUsuario === "ADMIN" || perfilUsuario === "GERENTE") {
+    console.log("🔓 Acesso Autorizado ao Painel Administrativo!");
+} else {
+    console.log("🔒 Acesso Negado: Credenciais ou idade insuficientes.");
+}
+ 
+console.log("(-- Teste de Segurança --)");
 
+const tokenDigitado = "123";
+const tokenValido = 123;
+
+
+const token = tokenValido === tokenDigitado;
+ console.log(token);
 
 // =============================================================================
 // ATIVIDADE 3: RASTREADOR DE STATUS DE PEDIDO (SWITCH / CASE)
@@ -99,7 +116,24 @@ console.log("--- Atividade 3: Rastreamento com Switch ---");
 
 // TODO: Escreva seu código da Atividade 3 abaixo:
 
+const statusPedido = "ENVIADO"
 
+switch (statusPedido) {
+    case "CRIADO":
+        console.log ("📝 Pedido recebido! Aguardando confirmação de pagamento.");
+        break;
+    case "PAGO":
+        console.log ("💳 Pagamento confirmado! Produto sendo embalado.");
+        break;
+    case "ENVIADO":
+        console.log ("🚚 Pedido em transporte! A caminho do seu endereço.");
+        break;
+    case "ENTREGUE":
+        console.log ("📦 Pedido entregue com sucesso! Aproveite sua compra.");
+        break;
+    default:
+        console.log("❓ Status desconhecido. Por favor, contate o suporte.");
+}
 
 
 
@@ -125,8 +159,19 @@ console.log("--- Atividade 4: Operador Ternário & Módulo ---");
 
 // TODO: Escreva seu código da Atividade 4 abaixo:
 
+console.log("Parte A (Par ou Ímpar):")
+
+const numero = 18;
+
+const tipoNumero = numero % 2 === 0 ? "PAR" : "ÍMPAR";
+console.log(`O número 18 é classificado como ${tipoNumero}`);
 
 
+console.log("Parte B (Disponibilidade de Estoque):")
 
+const quantidadeEstoque = 0;
+
+const avisoEstoque = quantidadeEstoque > 0 ? "✅ Em Estoque" : "❌ Esgotado";
+console.log(`Disponibilidade do Produto: ${avisoEstoque}`);
 
 console.log("=== FIM DA ATIVIDADE 20 ===");
